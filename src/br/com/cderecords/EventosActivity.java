@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import br.com.cderecords.dao.EventosDao;
 import br.com.cderecords.model.Evento;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,8 +76,14 @@ public class EventosActivity extends ListActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		Intent i;
+		if (id == R.id.mn_novo_evento) {
+			i = new Intent(this, NovoActivity.class);
+			startActivity(i);
+			finish();
+		} else if (id == R.id.mn_sobre) {
+			i = new Intent(this, SobreActivity.class);
+			startActivity(i);
 		}
 		return super.onOptionsItemSelected(item);
 	}

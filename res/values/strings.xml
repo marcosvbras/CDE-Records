@@ -3,7 +3,8 @@
 
     <string name="app_name">Clube do Espeto Records</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="menu_novo">Novo Evento</string>
+    <string name="menu_sobre">Sobre</string>
     <string name="title_activity_novo">NovoActivity</string>
     <string name="title_activity_participantes">ParticipantesActivity</string>
     <string name="title_activity_sobre">SobreActivity</string>

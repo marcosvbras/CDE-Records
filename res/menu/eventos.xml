@@ -3,9 +3,14 @@
     tools:context="br.com.cderecords.EventosActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/mn_novo_evento"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/menu_novo"/>
+    <item
+        android:id="@+id/mn_sobre"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menu_sobre"/>
 
 </menu>
