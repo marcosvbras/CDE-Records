@@ -23,11 +23,18 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int logo=0x7f020001;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f080000;
-        public static final int mn_novo_evento=0x7f080001;
-        public static final int mn_sobre=0x7f080002;
+        public static final int LinearLayout1=0x7f080006;
+        public static final int LinearLayout2=0x7f080000;
+        public static final int btn_cancelar=0x7f080005;
+        public static final int btn_salvar=0x7f080004;
+        public static final int et_data_evento=0x7f080003;
+        public static final int et_nome_evento=0x7f080002;
+        public static final int imageView1=0x7f080001;
+        public static final int mn_novo_evento=0x7f080007;
+        public static final int mn_sobre=0x7f080008;
     }
     public static final class layout {
         public static final int activity_novo=0x7f030000;
