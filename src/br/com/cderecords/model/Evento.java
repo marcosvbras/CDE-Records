@@ -4,6 +4,7 @@ public class Evento {
 	
 	private int id, total, homens, mulheres;
 	private String evento, data;
+	
 	public int getId() {
 		return id;
 	}
@@ -40,8 +41,4 @@ public class Evento {
 	public void setData(String data) {
 		this.data = data;
 	}
-	
-	
-	
-
 }
