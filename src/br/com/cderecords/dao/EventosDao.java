@@ -1,6 +1,7 @@
 package br.com.cderecords.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.cderecords.model.Evento;
 import android.content.ContentValues;
@@ -8,13 +9,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class EventosDao {
 	
 	private SQLiteDatabase database;
 	private AppDatabase dbHelper;
-	private String[] colunas = { AppDatabase.COLUNA_ID, AppDatabase.COLUNA_EVENTO, AppDatabase.COLUNA_HOMENS, 
-			AppDatabase.COLUNA_MULHERES, AppDatabase.COLUNA_DATA};
+	private String[] colunas = { AppDatabase.COLUNA_ID, AppDatabase.COLUNA_EVENTO, AppDatabase.COLUNA_DATA, AppDatabase.COLUNA_HOMENS, 
+			AppDatabase.COLUNA_MULHERES};
 	
 	public EventosDao(Context context) {
 		dbHelper = new AppDatabase(context);
@@ -40,23 +42,44 @@ public class EventosDao {
 		long insertId = database.insert(AppDatabase.TABELA_EVENTOS, null, values);
 	}
 	
-	public ArrayList<Evento> buscarEventos() {
+	public Evento buscarEventoPorId(int id) {
 		Evento e = new Evento();
-		ArrayList<Evento> listaEventos = new ArrayList<Evento>();
-		
-		Cursor cursor = database.query(AppDatabase.TABELA_EVENTOS, colunas, null, null, null, null, null);
+		Cursor cursor = database.query(AppDatabase.TABELA_EVENTOS, colunas, "_id = ?", new String[] {String.valueOf(id)}, null, null, null);
 		
 		if(cursor.getCount() > 0) {
 			cursor.moveToFirst();
+			e = new Evento();
+			e.setId(cursor.getInt(0));
+			e.setEvento(cursor.getString(1));
+			e.setData(cursor.getString(2));
+			e.setHomens(cursor.getInt(3));
+			e.setMulheres(cursor.getInt(4));			
+		}
+
+		cursor.close();
+
+		return e;
+	}
+	
+	public List<Evento> buscarEventos() {
+		Evento e;
+		List<Evento> listaEventos = new ArrayList<Evento>();
+		
+		Cursor cursor = database.query(AppDatabase.TABELA_EVENTOS, colunas, null, null, null, null, null);
+		if(cursor.getCount() > 0) {
+			cursor.moveToFirst();
 			do {
+				e = new Evento();
 				e.setId(cursor.getInt(0));
 				e.setEvento(cursor.getString(1));
 				e.setData(cursor.getString(2));
 				e.setHomens(cursor.getInt(3));
 				e.setMulheres(cursor.getInt(4));
-			}while(cursor.moveToNext());
-			
+				listaEventos.add(e);			
+			} while(cursor.moveToNext());
+
 			cursor.close();
+
 			return listaEventos;
 		} else {
 			return null;

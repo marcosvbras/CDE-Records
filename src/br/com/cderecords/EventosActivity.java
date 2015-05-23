@@ -1,55 +1,73 @@
 package br.com.cderecords;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.cderecords.dao.EventosDao;
 import br.com.cderecords.model.Evento;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class EventosActivity extends ListActivity {
 	
-	private ArrayList<Evento> listaEventos;
+	private List<Evento> listaEventos;
 	private ArrayList<String> listaItens;
+	private ArrayAdapter<String> listaAdapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		buscaTodosAbastecimentos();
+		buscarEventos();
 	}
 	
-	private void buscaTodosAbastecimentos() {
+	private void buscarEventos() {
 		EventosDao dao = new EventosDao(this);
 		this.listaEventos = dao.buscarEventos();
+
 		if(listaEventos != null) {
 			gerarItensLista(listaEventos);
 			carregaLista(this.listaItens);			
 		}
 	}
 	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		int item_id = this.listaEventos.get(position).getId();
+		Intent i = new Intent(this, ParticipantesActivity.class);
+		Bundle params = new Bundle();
+		params.putInt("item_id", item_id);
+		i.putExtras(params);
+		startActivity(i);
+		finish();
+	}
+	
 	private void carregaLista(ArrayList<String> listaItens) {
-		ArrayAdapter<String> listaAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaItens);
+		listaAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaItens);
 		this.setListAdapter(listaAdapter);
 	}
 	
-	private void gerarItensLista(ArrayList<Evento> listaEventos) {
+	private void gerarItensLista(List<Evento> listaEventos) {
 		this.listaItens = new ArrayList<String>();
 		
 		for(int i = 0; i < listaEventos.size(); i++) {
-			Evento e = pegarObjeto(i);
-			String item = "" + e.getTotal() + "[" + e.getMulheres() + "/"
+			Evento e = pegarObjeto(i, listaEventos);
+			String item = "" + e.getTotal() + " [" + e.getMulheres() + "/"
 					+ e.getHomens() + "]" + " - " + e.getData() + " - "
 					+ e.getEvento();
 			
-			this.listaItens.add(item);
+			this.listaItens.add(i, item);
 		}
 	}
 	
-	private Evento pegarObjeto(int i) {
+	private Evento pegarObjeto(int i, List<Evento> listaEventos) {
 		Evento e = new Evento();
 		e.setId(this.listaEventos.get(i).getId());
 		e.setEvento(this.listaEventos.get(i).getEvento());
@@ -58,7 +76,7 @@ public class EventosActivity extends ListActivity {
 		e.setMulheres(this.listaEventos.get(i).getMulheres());
 		int total = e.getHomens() + e.getMulheres();
 		e.setTotal(total);
-		
+
 		return e;
 	}
 	

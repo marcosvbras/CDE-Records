@@ -13,10 +13,10 @@ import br.com.cderecords.model.Evento;
 
 public class NovoActivity extends Activity {
 	
-	EditText et_nome_evento, et_data_evento;
-	String nome_Evento, data_Evento;
-	Intent i;
-	Evento e = new Evento();
+	private EditText et_nome_evento, et_data_evento;
+	private String nome_Evento, data_Evento;
+	private Intent i;
+	private Evento e = new Evento();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class NovoActivity extends Activity {
 		
 		if(!nome_Evento.equals("")){
 			if(!data_Evento.equals("")){
-					resultado = true;
+				resultado = true;
 			}
 		}
 		
@@ -54,20 +54,19 @@ public class NovoActivity extends Activity {
 	
 	public void salvar(View view) {
 		pegarValores();
-		if(validarCampos()){
-		EventosDao dao = new EventosDao(this);
-		dao.salvar(e);
 		
-		Toast.makeText(this, "Cadastro salvo com sucesso", Toast.LENGTH_SHORT).show();
+		if(validarCampos()) {
+			EventosDao dao = new EventosDao(this);
+			dao.salvar(e);
 		
-		i = new Intent(this, EventosActivity.class);
-		startActivity(i);
-		finish();
-		}
-		else{
+			Toast.makeText(this, "Cadastro salvo com sucesso", Toast.LENGTH_SHORT).show();
+		
+			i = new Intent(this, EventosActivity.class);
+			startActivity(i);
+			finish();
+		} else{
 			Toast.makeText(this, "Verifique se os campos foram preenchidos corretamente", Toast.LENGTH_SHORT).show();
 		}
-
 	}
 	
 	public void cancelar(View view) {
