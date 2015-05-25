@@ -11,12 +11,12 @@
     tools:context="br.com.cderecords.ParticipantesActivity" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tv_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:text="158 pessoas presentes no evento" />
+        android:text="número de pessoas" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,19 +24,19 @@
         android:layout_marginTop="25dp" >
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_mulheres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
-            android:text="80"
+            android:text="00"
             android:textSize="45dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_homens"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:text="78"
+            android:text="00"
             android:textSize="45dp" />
     </LinearLayout>
 
@@ -75,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
+                android:onClick="controlarMulheres"
                 android:text="+" />
 
             <Button
@@ -83,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="25dp"
+                android:onClick="controlarMulheres"
                 android:text="-" />
         </LinearLayout>
 
@@ -96,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
+                android:onClick="controlarHomens"
                 android:text="+" />
 
             <Button
@@ -104,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="25dp"
+                android:onClick="controlarHomens"
                 android:text="-" />
         </LinearLayout>
     </LinearLayout>

@@ -46,9 +46,9 @@ public final class R {
         public static final int mn_salvar=0x7f080011;
         public static final int mn_sobre=0x7f080010;
         public static final int mn_voltar=0x7f080013;
-        public static final int textView1=0x7f080007;
-        public static final int textView2=0x7f080008;
-        public static final int textView3=0x7f080009;
+        public static final int tv_homens=0x7f080009;
+        public static final int tv_mulheres=0x7f080008;
+        public static final int tv_total=0x7f080007;
     }
     public static final class layout {
         public static final int activity_novo=0x7f030000;
