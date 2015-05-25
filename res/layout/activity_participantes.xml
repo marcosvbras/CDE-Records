@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:onClick="controlarMulheres"
-                android:text="+" />
+                android:text="@string/button_mais" />
 
             <Button
                 android:id="@+id/bnt_menosmulher"
@@ -85,7 +85,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="25dp"
                 android:onClick="controlarMulheres"
-                android:text="-" />
+                android:text="@string/button_menos" />
         </LinearLayout>
 
         <LinearLayout
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:onClick="controlarHomens"
-                android:text="+" />
+                android:text="@string/button_mais" />
 
             <Button
                 android:id="@+id/bnt_menoshomem"
@@ -108,7 +108,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="25dp"
                 android:onClick="controlarHomens"
-                android:text="-" />
+                android:text="@string/button_menos" />
         </LinearLayout>
     </LinearLayout>
 

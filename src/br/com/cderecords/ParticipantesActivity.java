@@ -3,6 +3,7 @@ package br.com.cderecords;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class ParticipantesActivity extends Activity {
 		setContentView(R.layout.activity_participantes);
 		pegarValores();
 		refenciarView();
+		exibirValores();
 	}
 
 	private void pegarValores() {
@@ -39,61 +41,58 @@ public class ParticipantesActivity extends Activity {
 	}
 
 	private void refenciarView() {
-		// TODO Auto-generated method stub
 		tvmulher = (TextView) findViewById(R.id.tv_mulheres);
 		tvhomem = (TextView) findViewById(R.id.tv_homens);
 		tvtotal = (TextView) findViewById(R.id.tv_total);
-
 	}
 
 	public void controlarHomens(View view) {
-		// TODO Auto-generated method stub
 		Button bnt_homem = (Button) view;
 		String texto = (String) bnt_homem.getText();
-		if (bnt_homem.equals("+")) {
+		
+		if (texto.equals("+")) {
 			aumentarParticipantes(HOMEM);
 		} else {
 			reduzirParticipantes(HOMEM);
 		}
-
+		atualizarEvento();
 	}
 
 	public void controlarMulheres(View view) {
-		// TODO Auto-generated method stub
-		Button bnt_mulher = (Button) view;
-		String texto = (String) bnt_mulher.getText();
-		if (bnt_mulher.equals("+")) {
+		Button bt_mulher = (Button) view;
+		String texto = (String) bt_mulher.getText();
+		
+		if (texto.equals("+")) {
 			aumentarParticipantes(MULHER);
 		} else {
 			reduzirParticipantes(MULHER);
 		}
-
 	}
 
 	private void reduzirParticipantes(int participantes) {
-		// TODO Auto-generated method stub
-		int homens = this.evento.getHomens();
-		int mulheres = this.evento.getMulheres();
-		if (participantes == MULHER) {
-			homens -= 1;
-			this.evento.setHomens(homens);
+		if (participantes == HOMEM) {
+			int homens = this.evento.getHomens();
+			if(homens > 0) {
+				homens -= 1;
+				this.evento.setHomens(homens);				
+			}
 		} else {
-			mulheres -= 1;
-			this.evento.setMulheres(mulheres);
+			int mulheres = this.evento.getMulheres();
+			if(mulheres > 0) {
+				mulheres -= 1;
+				this.evento.setMulheres(mulheres);				
+			}
 		}
 		exibirValores();
 	}
 
 	private void aumentarParticipantes(int participantes) {
-		// TODO Auto-generated method stub
-		int homens = this.evento.getHomens();
-		int mulheres = this.evento.getMulheres();
-
 		if (participantes == HOMEM) {
+			int homens = this.evento.getHomens();
 			homens += 1;
 			this.evento.setHomens(homens);
-
 		} else {
+			int mulheres = this.evento.getMulheres();
 			mulheres += 1;
 			this.evento.setMulheres(mulheres);
 		}
@@ -101,11 +100,15 @@ public class ParticipantesActivity extends Activity {
 	}
 
 	private void exibirValores() {
-		// TODO Auto-generated method stub
 		tvhomem.setText("" + this.evento.getHomens());
 		tvmulher.setText("" + this.evento.getMulheres());
 		int total = this.evento.getHomens() + this.evento.getMulheres();
-		tvtotal.setText("" + total + "pessoas presentes no evento");
-
+		Log.v("Espeto", "Total: " + total);
+		tvtotal.setText("" + total + " " + getResources().getString(R.string.title_pessoas));
+	}
+	
+	private void atualizarEvento() {
+		EventosDao dao = new EventosDao(this);
+		dao.atualizarEvento(this.evento);
 	}
 }

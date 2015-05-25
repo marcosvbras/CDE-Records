@@ -8,5 +8,8 @@
     <string name="title_activity_novo">Novo Evento</string>
     <string name="title_activity_participantes">ParticipantesActivity</string>
     <string name="title_activity_sobre">SobreActivity</string>
+    <string name="title_pessoas">pessoas presentes no evento</string>
+    <string name="button_mais">+</string>
+    <string name="button_menos">-</string>
 
 </resources>

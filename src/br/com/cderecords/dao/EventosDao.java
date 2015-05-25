@@ -85,4 +85,18 @@ public class EventosDao {
 			return null;
 		}
 	}
+	
+	public void atualizarEvento(Evento e){
+		ContentValues valores = new ContentValues();
+		valores.put(AppDatabase.COLUNA_EVENTO, e.getEvento());
+		valores.put(AppDatabase.COLUNA_DATA, e.getData());
+		valores.put(AppDatabase.COLUNA_HOMENS, e.getHomens());
+		valores.put(AppDatabase.COLUNA_MULHERES, e.getMulheres());
+		
+		database.update(AppDatabase.TABELA_EVENTOS, valores, "_id = ?", new String[]{""+e.getId()});
+	}
+	
+	public void excluirEvento(Evento e){
+		database.delete(AppDatabase.TABELA_EVENTOS, "_id = "+ e.getId(), null);
+	}
 }
