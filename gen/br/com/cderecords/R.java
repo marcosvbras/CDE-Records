@@ -24,21 +24,31 @@ public final class R {
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int logo=0x7f020001;
-        public static final int screen_border=0x7f020002;
+        public static final int man=0x7f020002;
+        public static final int screen_border=0x7f020003;
+        public static final int woman=0x7f020004;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f080006;
         public static final int LinearLayout2=0x7f080000;
+        public static final int bnt_maishomem=0x7f08000d;
+        public static final int bnt_maismulher=0x7f08000b;
+        public static final int bnt_menoshomem=0x7f08000e;
+        public static final int bnt_menosmulher=0x7f08000c;
         public static final int btn_cancelar=0x7f080005;
         public static final int btn_salvar=0x7f080004;
         public static final int et_data_evento=0x7f080003;
         public static final int et_nome_evento=0x7f080002;
         public static final int imageView1=0x7f080001;
-        public static final int mn_cancelar=0x7f08000a;
-        public static final int mn_novo_evento=0x7f080007;
-        public static final int mn_salvar=0x7f080009;
-        public static final int mn_sobre=0x7f080008;
-        public static final int mn_voltar=0x7f08000b;
+        public static final int imageView2=0x7f08000a;
+        public static final int mn_cancelar=0x7f080012;
+        public static final int mn_novo_evento=0x7f08000f;
+        public static final int mn_salvar=0x7f080011;
+        public static final int mn_sobre=0x7f080010;
+        public static final int mn_voltar=0x7f080013;
+        public static final int textView1=0x7f080007;
+        public static final int textView2=0x7f080008;
+        public static final int textView3=0x7f080009;
     }
     public static final class layout {
         public static final int activity_novo=0x7f030000;
