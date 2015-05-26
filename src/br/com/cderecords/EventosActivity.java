@@ -5,21 +5,30 @@ import java.util.List;
 
 import br.com.cderecords.dao.EventosDao;
 import br.com.cderecords.model.Evento;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseBooleanArray;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class EventosActivity extends ListActivity {
 	
 	private List<Evento> listaEventos;
 	private ArrayList<String> listaItens;
 	private ArrayAdapter<String> listaAdapter;
+	private ListView listViewEvento;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +48,12 @@ public class EventosActivity extends ListActivity {
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
 		int item_id = this.listaEventos.get(position).getId();
 		Intent i = new Intent(this, ParticipantesActivity.class);
 		Bundle params = new Bundle();
 		params.putInt("item_id", item_id);
 		i.putExtras(params);
 		startActivity(i);
-		finish();
 	}
 	
 	private void carregaLista(ArrayList<String> listaItens) {
@@ -80,7 +87,12 @@ public class EventosActivity extends ListActivity {
 		return e;
 	}
 	
-
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		buscarEventos();
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -102,6 +114,8 @@ public class EventosActivity extends ListActivity {
 		} else if (id == R.id.mn_sobre) {
 			i = new Intent(this, SobreActivity.class);
 			startActivity(i);
+		} else if (id == R.id.mn_excluir) {
+			
 		}
 		return super.onOptionsItemSelected(item);
 	}

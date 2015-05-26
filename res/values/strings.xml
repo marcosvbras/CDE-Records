@@ -4,12 +4,17 @@
     <string name="app_name">Clube do Espeto Records</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_novo">Novo Evento</string>
+    <string name="menu_voltar">Voltar</string>
     <string name="menu_sobre">Sobre</string>
+    <string name="menu_excluir">Excluir Eventos</string>
     <string name="title_activity_novo">Novo Evento</string>
     <string name="title_activity_participantes">ParticipantesActivity</string>
     <string name="title_activity_sobre">SobreActivity</string>
     <string name="title_pessoas">pessoas presentes no evento</string>
     <string name="button_mais">+</string>
     <string name="button_menos">-</string>
+    <string name="button_salvar">Salvar</string>
+    <string name="button_cancelar">Cancelar</string>
+    <string name="button_definir_data">Definir Nova Data</string>
 
 </resources>
