@@ -16,5 +16,18 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+    
+    <style name="CDETheme" parent="android:Theme.Light">
+        <item name="android:actionBarStyle">@style/CDETheme.ActionBar</item>      
+    </style>
+    <style name="CDETheme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/vermelho</item>
+        <item name="android:titleTextStyle">@style/CDETheme.ActionBarText</item>
+    </style>
+    <style name="CDETheme.ActionBarText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/branco</item>
+    </style> 
+    <style name="CustomActionBarTheme"
+       parent="@android:style/Theme.Holo">
+	</style>
 </resources>

@@ -22,10 +22,7 @@ public class ParticipantesActivity extends Activity {
 	private Evento evento;
 	private final int HOMEM = 1;
 	private final int MULHER = 2;
-
-	TextView tvhomem;
-	TextView tvmulher;
-	TextView tvtotal;
+	private TextView tv_homem, tv_mulher, tv_total, tv_evento;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +42,10 @@ public class ParticipantesActivity extends Activity {
 	}
 
 	private void refenciarView() {
-		tvmulher = (TextView) findViewById(R.id.tv_mulheres);
-		tvhomem = (TextView) findViewById(R.id.tv_homens);
-		tvtotal = (TextView) findViewById(R.id.tv_total);
+		tv_mulher = (TextView) findViewById(R.id.tv_mulheres);
+		tv_homem = (TextView) findViewById(R.id.tv_homens);
+		tv_total = (TextView) findViewById(R.id.tv_total);
+		tv_evento = (TextView) findViewById(R.id.tv_evento);
 	}
 
 	public void controlarHomens(View view) {
@@ -105,10 +103,11 @@ public class ParticipantesActivity extends Activity {
 	}
 
 	private void exibirValores() {
-		tvhomem.setText("" + this.evento.getHomens());
-		tvmulher.setText("" + this.evento.getMulheres());
+		tv_evento.setText(this.evento.getEvento());
+		tv_homem.setText("" + this.evento.getHomens());
+		tv_mulher.setText("" + this.evento.getMulheres());
 		int total = this.evento.getHomens() + this.evento.getMulheres();
-		tvtotal.setText("" + total + " " + getResources().getString(R.string.title_pessoas));
+		tv_total.setText("" + total + " " + getResources().getString(R.string.title_pessoas));
 	}
 	
 	private void atualizarEvento() {

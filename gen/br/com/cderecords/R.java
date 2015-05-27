@@ -10,6 +10,11 @@ package br.com.cderecords;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int amarelo=0x7f060002;
+        public static final int branco=0x7f060001;
+        public static final int vermelho=0x7f060000;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
@@ -22,50 +27,67 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int colorful_logo1=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int man=0x7f020002;
-        public static final int minilogo=0x7f020003;
-        public static final int screen_border=0x7f020004;
-        public static final int woman=0x7f020005;
+        public static final int bg_pin=0x7f020000;
+        public static final int btn_date_border=0x7f020001;
+        public static final int buttons_border=0x7f020002;
+        public static final int colorful_logo1=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int man_white=0x7f020005;
+        public static final int mini_man_red=0x7f020006;
+        public static final int mini_woman_red=0x7f020007;
+        public static final int minilogo=0x7f020008;
+        public static final int minilogo_white=0x7f020009;
+        public static final int number_button=0x7f02000a;
+        public static final int woman_white=0x7f02000b;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f080006;
-        public static final int LinearLayout2=0x7f080000;
-        public static final int action_editar=0x7f080010;
-        public static final int action_excluir=0x7f080011;
-        public static final int bnt_maishomem=0x7f08000e;
-        public static final int bnt_maismulher=0x7f08000c;
-        public static final int bnt_menoshomem=0x7f08000f;
-        public static final int bnt_menosmulher=0x7f08000d;
-        public static final int btn_cancelar=0x7f080005;
-        public static final int btn_definir_data=0x7f080003;
-        public static final int btn_salvar=0x7f080004;
-        public static final int et_nome_evento=0x7f080002;
-        public static final int imageView1=0x7f080001;
-        public static final int imageView2=0x7f08000a;
-        public static final int imageView3=0x7f08000b;
-        public static final int mn_cancelar=0x7f080016;
-        public static final int mn_excluir=0x7f080013;
-        public static final int mn_novo_evento=0x7f080012;
-        public static final int mn_salvar=0x7f080015;
-        public static final int mn_sobre=0x7f080014;
-        public static final int mn_voltar=0x7f080017;
-        public static final int tv_homens=0x7f080009;
-        public static final int tv_mulheres=0x7f080008;
-        public static final int tv_total=0x7f080007;
+        public static final int LinearLayout1=0x7f090006;
+        public static final int LinearLayout2=0x7f090000;
+        public static final int action_editar=0x7f090019;
+        public static final int action_excluir=0x7f09001a;
+        public static final int bnt_maishomem=0x7f09000f;
+        public static final int bnt_maismulher=0x7f09000d;
+        public static final int bnt_menoshomem=0x7f090010;
+        public static final int bnt_menosmulher=0x7f09000e;
+        public static final int btn_cancelar=0x7f090005;
+        public static final int btn_data=0x7f090011;
+        public static final int btn_definir_data=0x7f090003;
+        public static final int btn_salvar=0x7f090004;
+        public static final int et_nome_evento=0x7f090002;
+        public static final int imageView1=0x7f090001;
+        public static final int imageView2=0x7f09000b;
+        public static final int imageView3=0x7f09000c;
+        public static final int iv_man=0x7f090017;
+        public static final int iv_woman=0x7f090015;
+        public static final int mn_cancelar=0x7f09001f;
+        public static final int mn_excluir=0x7f09001c;
+        public static final int mn_novo_evento=0x7f09001b;
+        public static final int mn_salvar=0x7f09001e;
+        public static final int mn_sobre=0x7f09001d;
+        public static final int mn_voltar=0x7f090020;
+        public static final int tv_data_evento=0x7f090013;
+        public static final int tv_evento=0x7f090007;
+        public static final int tv_homens=0x7f09000a;
+        public static final int tv_mulheres=0x7f090009;
+        public static final int tv_nome_evento=0x7f090012;
+        public static final int tv_quant_homens=0x7f090018;
+        public static final int tv_quant_mulheres=0x7f090016;
+        public static final int tv_quant_total=0x7f090014;
+        public static final int tv_total=0x7f090008;
     }
     public static final class layout {
         public static final int activity_novo=0x7f030000;
         public static final int activity_participantes=0x7f030001;
         public static final int activity_sobre=0x7f030002;
+        public static final int eventos1=0x7f030003;
+        public static final int eventos2=0x7f030004;
     }
     public static final class menu {
-        public static final int acoescrud=0x7f070000;
-        public static final int eventos=0x7f070001;
-        public static final int novo=0x7f070002;
-        public static final int participantes=0x7f070003;
-        public static final int sobre=0x7f070004;
+        public static final int acoescrud=0x7f080000;
+        public static final int eventos=0x7f080001;
+        public static final int novo=0x7f080002;
+        public static final int participantes=0x7f080003;
+        public static final int sobre=0x7f080004;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
@@ -106,10 +128,14 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
+        public static final int CDETheme=0x7f070002;
+        public static final int CDETheme_ActionBar=0x7f070003;
+        public static final int CDETheme_ActionBarText=0x7f070004;
+        public static final int CustomActionBarTheme=0x7f070005;
     }
 }
