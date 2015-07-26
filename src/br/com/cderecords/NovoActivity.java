@@ -131,9 +131,7 @@ public class NovoActivity extends Activity {
 		int id = item.getItemId();
 		Intent i;
 		if (id == R.id.mn_salvar) {
-			i = new Intent(this, NovoActivity.class);
-			startActivity(i);
-			finish();
+			salvar(new View(this));
 		} else if (id == R.id.mn_cancelar) {
 			finish();
 		} else if (id == R.id.mn_sobre) {

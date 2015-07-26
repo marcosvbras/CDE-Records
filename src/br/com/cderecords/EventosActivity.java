@@ -7,6 +7,7 @@ import br.com.cderecords.dao.EventosDao;
 import br.com.cderecords.model.Evento;
 import br.com.cderecords.model.EventoAdapter;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
@@ -26,44 +27,42 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class EventosActivity extends ListActivity {
+public class EventosActivity extends Activity {
 	
 	private List<Evento> listaEventos;
-	private ArrayList<String> listaItens;
-	private ListView listViewEvento;
+	private ListView lvEvento;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 		buscarEventos();
 	}
 	
 	private void buscarEventos() {
 		EventosDao dao = new EventosDao(this);
 		this.listaEventos = dao.buscarEventos();
-
+		
 		if(listaEventos != null) {
-			carregaLista(this.listaItens);			
+			carregaLista();			
 		}
 	}
 	
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		this.listViewEvento = getListView();
-		this.listViewEvento.setClickable(true);
+	private void carregaLista() {
+		lvEvento = (ListView) findViewById(R.id.lv);
+		lvEvento.setAdapter(new EventoAdapter(this, listaEventos));
+	}
+	
+	public void onItemClickListener(View view) {
+		int position = lvEvento.getPositionForView(view);
 		int item_id = listaEventos.get(position).getId();
-		Intent i = new Intent(getBaseContext(), ParticipantesActivity.class);
+		Intent i = new Intent(this, ParticipantesActivity.class);
 		Bundle params = new Bundle();
 		params.putInt("item_id", item_id);
 		i.putExtras(params);
 		startActivity(i);
-	}
-	
-	private void carregaLista(ArrayList<String> listaItens) {
-		this.listViewEvento = getListView();
-		this.listViewEvento.setClickable(true);
-		this.listViewEvento.setAdapter(new EventoAdapter(this, listaEventos));
 	}
 	
 	@Override

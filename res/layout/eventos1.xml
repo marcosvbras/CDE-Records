@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:background="#FFD700"
+    android:onClick="onItemClickListener"
     android:orientation="horizontal" >
 
     <Button
@@ -10,9 +11,9 @@
         android:layout_width="60dp"
         android:layout_height="90dp"
         android:background="@color/vermelho"
-        android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:textSize="27sp" />
+        android:textSize="27sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -24,10 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            android:textColor="#8B0000"
             android:text="Nome"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#8B0000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_data_evento"
@@ -36,21 +37,27 @@
             android:layout_marginLeft="10dp"
             android:text="Data"
             android:textColor="#8B0000"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/tv_quant_total"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Total"
-                android:textColor="#8B0000"
-                android:textSize="20sp" />
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_quant_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Total"
+                    android:textColor="#8B0000"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/iv_woman"
@@ -63,8 +70,8 @@
                 android:id="@+id/tv_quant_mulheres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mulheres"
                 android:layout_marginLeft="5dp"
+                android:text="Mulheres"
                 android:textColor="#8B0000"
                 android:textSize="20sp" />
 
@@ -79,8 +86,8 @@
                 android:id="@+id/tv_quant_homens"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Homens"
                 android:layout_marginLeft="5dp"
+                android:text="Homens"
                 android:textColor="#8B0000"
                 android:textSize="20sp" />
         </LinearLayout>

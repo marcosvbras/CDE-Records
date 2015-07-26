@@ -3,18 +3,24 @@ package br.com.cderecords.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.cderecords.ParticipantesActivity;
 import br.com.cderecords.R;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class EventoAdapter extends BaseAdapter{
 	
@@ -51,9 +57,15 @@ public class EventoAdapter extends BaseAdapter{
 		if(convertView == null){
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			if(position%2 == 0) {
-				layout = inflater.inflate(R.layout.eventos1, null);				
+				layout = inflater.inflate(R.layout.eventos1, null);	
+				layout.setEnabled(true);
+				layout.setClickable(true);
+				layout.setFocusable(true);
 			} else {
 				layout = inflater.inflate(R.layout.eventos2, null);
+				layout.setEnabled(true);
+				layout.setClickable(true);
+				layout.setFocusable(true);
 			}
 		}
 		else{

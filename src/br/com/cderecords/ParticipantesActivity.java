@@ -1,7 +1,5 @@
 package br.com.cderecords;
 
-import java.util.Calendar;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import br.com.cderecords.dao.EventosDao;
@@ -26,6 +25,7 @@ public class ParticipantesActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_participantes);
 		pegarValores();
