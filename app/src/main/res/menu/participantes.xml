@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.cderecords.activity.ParticipantesActivity" >
+	
+    <item
+        android:id="@+id/mn_novo_evento"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menu_novo"/>
+    <item
+        android:id="@+id/mn_voltar"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menu_voltar"/>
+    <item
+        android:id="@+id/mn_sobre"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menu_sobre"/>
+
+</menu>

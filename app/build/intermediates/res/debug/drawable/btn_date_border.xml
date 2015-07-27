@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <corners android:radius="10dp" />
+
+    <padding
+        android:bottom="7dp"
+        android:left="7dp"
+        android:right="7dp"
+        android:top="7dp" />
+
+    <solid android:color="#CCCCCC" />
+
+</shape><!-- From: file:/C:/android-studio-workspace/CDERecords/app/src/main/res/drawable/btn_date_border.xml -->
