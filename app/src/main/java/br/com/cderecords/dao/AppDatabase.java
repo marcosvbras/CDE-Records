@@ -56,8 +56,8 @@ public class AppDatabase {
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			Log.w("APP DATABASE", "Atualizando banco de dados da vers„o " + oldVersion + 
-					" para vers„o " + newVersion + ". Todos os dados ser„o perdidos");
+			Log.w("APP DATABASE", "Atualizando banco de dados da vers√£o " + oldVersion +
+					" para vers√£o " + newVersion + ". Todos os dados ser√£o perdidos");
 			db.execSQL("DROP TABLE IF EXISTS " + TABELA_EVENTOS);
 			onCreate(db);
 		}

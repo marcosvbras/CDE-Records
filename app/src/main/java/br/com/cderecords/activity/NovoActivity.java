@@ -6,10 +6,14 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -19,7 +23,7 @@ import br.com.cderecords.R;
 import br.com.cderecords.dao.EventosDao;
 import br.com.cderecords.model.Evento;
 
-public class NovoActivity extends Activity {
+public class NovoActivity extends ActionBarActivity {
 	
 	private EditText et_nome_evento;
 	private static Button bt_definir_data;
@@ -30,12 +34,20 @@ public class NovoActivity extends Activity {
 	private Calendar cal;
 	private static final int DILOG_ID = 0;
 	private String TEXT_BUTTON;
+	private Toolbar mToolbar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+		}
 		setContentView(R.layout.activity_novo);
 		referenciarViews();
+		mToolbar.setTitle(getResources().getString(R.string.title_activity_novo));
+		setSupportActionBar(mToolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		cal = Calendar.getInstance();
 		this.year = cal.get(Calendar.YEAR);
 		this.month = cal.get(Calendar.MONTH);
@@ -44,6 +56,7 @@ public class NovoActivity extends Activity {
 	}
 	
 	private void referenciarViews() {
+		mToolbar = (Toolbar) findViewById(R.id.tb_main);
 		et_nome_evento = (EditText)findViewById(R.id.et_nome_evento);
 		bt_definir_data = (Button)findViewById(R.id.btn_definir_data);
 		bt_definir_data.setOnClickListener(
@@ -104,18 +117,14 @@ public class NovoActivity extends Activity {
 			EventosDao dao = new EventosDao(this);
 			dao.salvar(e);
 		
-			Toast.makeText(this, "Evento salvo com sucesso", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, getResources().getString(R.string.text_evento_salvo), Toast.LENGTH_SHORT).show();
 		
 			i = new Intent(this, EventosActivity.class);
 			startActivity(i);
 			finish();
 		} else{
-			Toast.makeText(this, "Verifique se os campos foram preenchidos corretamente", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, getResources().getString(R.string.text_verifique_campos), Toast.LENGTH_SHORT).show();
 		}
-	}
-	
-	public void cancelar(View view) {
-		finish();
 	}
 	
 	@Override
@@ -134,12 +143,10 @@ public class NovoActivity extends Activity {
 		Intent i;
 		if (id == R.id.mn_salvar) {
 			salvar(new View(this));
-		} else if (id == R.id.mn_cancelar) {
-			finish();
 		} else if (id == R.id.mn_sobre) {
 			i = new Intent(this, SobreActivity.class);
 			startActivity(i);
-		} else if (id == R.id.mn_voltar) {
+		} else {
 			finish();
 		}
 		return super.onOptionsItemSelected(item);

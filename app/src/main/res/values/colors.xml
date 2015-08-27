@@ -3,9 +3,12 @@
 
     <color name="grey">#ddd</color>
     <color name="black">#000</color>
+    <color name="white">#fff</color>
     <color name="amarelo">#FFD700</color>
+    <color name="vermelho">#8B0000</color>
     <color name="colorPrimary">#b20000</color>
     <color name="colorPrimaryDark">#990000</color>
     <color name="colorAccent">#795548</color>
+    <color name="colorPrimarytext">#212121</color>
 
 </resources>

@@ -1,11 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/LinearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8B0000"
     android:orientation="vertical"
-    tools:context="br.com.cderecords.activity.NovoActivity" >
+    tools:context="br.com.cderecords.activity.NovoActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_main"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="8dp"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +28,7 @@
             android:id="@+id/imageView1"
             android:layout_width="170dp"
             android:layout_height="170dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:src="@drawable/colorful_logo1" />
     </LinearLayout>
 
@@ -53,33 +64,27 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btn_salvar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons_border"
+        android:onClick="salvar"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="@string/button_salvar"
+        android:textColor="@color/vermelho"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40sp"
-        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/btn_salvar"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/buttons_border"
-            android:onClick="salvar"
-            android:text="@string/button_salvar"
-            android:textColor="@color/vermelho"
-            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_cancelar"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/buttons_border"
-            android:onClick="cancelar"
-            android:text="@string/button_cancelar"
-            android:textColor="@color/vermelho"
-            android:textStyle="bold" />
+
     </LinearLayout>
 
 </LinearLayout>

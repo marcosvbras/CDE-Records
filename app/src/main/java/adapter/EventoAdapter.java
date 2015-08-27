@@ -1,8 +1,10 @@
-package br.com.cderecords.model;
+package adapter;
 
 import java.util.List;
 
 import br.com.cderecords.R;
+import br.com.cderecords.model.Evento;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +18,6 @@ public class EventoAdapter extends BaseAdapter{
 	private Context context;
 	private List<Evento> listaEvento;
 	private TextView tv_quant_total, tv_quant_homens, tv_quant_mulheres, tv_nome_evento, tv_data_evento;
-	Button btn_data;
 	
 	public EventoAdapter(Context context, List<Evento> listaEvento){
 		this.context = context;
@@ -45,17 +46,7 @@ public class EventoAdapter extends BaseAdapter{
 		
 		if(convertView == null){
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			if(position%2 == 0) {
-				layout = inflater.inflate(R.layout.eventos1, null);	
-				layout.setEnabled(true);
-				layout.setClickable(true);
-				layout.setFocusable(true);
-			} else {
-				layout = inflater.inflate(R.layout.eventos2, null);
-				layout.setEnabled(true);
-				layout.setClickable(true);
-				layout.setFocusable(true);
-			}
+			layout = inflater.inflate(R.layout.item_evento, null);
 		}
 		else{
 			layout = convertView;
@@ -65,16 +56,16 @@ public class EventoAdapter extends BaseAdapter{
 		tv_nome_evento.setText(evento.getEvento());
 		String data = evento.getData();
 		tv_data_evento.setText(data);
-		String split_data = data.substring(1, 2);
-		if(split_data.equals("/")){
-			data = data.substring(0, 1);
-		} else {
-			data = data.substring(0, 2);
-		}
-		btn_data.setText(data);
+//		String split_data = data.substring(1, 2);
+//		if(split_data.equals("/")){
+//			data = data.substring(0, 1);
+//		} else {
+//			data = data.substring(0, 2);
+//		}
+//		btn_data.setText(data);
 		
 		int total = evento.getMulheres() + evento.getHomens();
-		tv_quant_total.setText("Participantes: " + total);
+		tv_quant_total.setText(layout.getResources().getString(R.string.text_participantes) + ": " + total);
 		tv_quant_mulheres.setText("" + evento.getMulheres());
 		tv_quant_homens.setText("" + evento.getHomens());
 		
@@ -82,7 +73,6 @@ public class EventoAdapter extends BaseAdapter{
 	}
 	
 	private void referenciarViews(View layout) {
-		btn_data = (Button) layout.findViewById(R.id.btn_data);
 		tv_quant_total = (TextView) layout.findViewById(R.id.tv_quant_total);
 		tv_quant_mulheres = (TextView) layout.findViewById(R.id.tv_quant_mulheres);
 		tv_quant_homens = (TextView) layout.findViewById(R.id.tv_quant_homens);

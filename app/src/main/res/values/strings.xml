@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Clube do Espeto Records</string>
+    <string name="app_name">CDE Records</string>
+    <string name="title_activity_eventos">Clube do Espeto Records</string>
+    <string name="subtitle_eventos">Eventos Cadastrados</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_novo">Novo Evento</string>
     <string name="menu_voltar">Voltar</string>
@@ -16,7 +18,8 @@
     <string name="button_salvar">Salvar</string>
     <string name="button_cancelar">Cancelar</string>
     <string name="button_definir_data">Definir Nova Data</string>
-    <color name="vermelho">#8B0000</color>
-    <color name="branco">#FFFFFF</color>
+    <string name="text_evento_salvo">Evento salvo com sucesso</string>
+    <string name="text_verifique_campos">Verifique se os campos foram preenchidos corretamente</string>
+    <string name="text_participantes">Participantes</string>
     
 </resources>

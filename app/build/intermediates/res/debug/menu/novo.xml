@@ -17,11 +17,6 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="Sobre"/>
-    <item
-        android:id="@+id/mn_voltar"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="Voltar"/>
 
 </menu>
 <!-- From: file:/C:/android-studio-workspace/CDERecords/app/src/main/res/menu/novo.xml -->

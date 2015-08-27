@@ -2,19 +2,20 @@ package br.com.cderecords.activity;
 
 import java.util.List;
 
+import adapter.EventoAdapter;
 import br.com.cderecords.R;
 import br.com.cderecords.dao.EventosDao;
 import br.com.cderecords.model.Evento;
-import br.com.cderecords.model.EventoAdapter;
-
-import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ListView;
 
 public class EventosActivity extends ActionBarActivity {
@@ -28,8 +29,8 @@ public class EventosActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		mToolbar = (Toolbar) findViewById(R.id.tb_main);
-		mToolbar.setTitle("Clube do Espeto Records");
-		mToolbar.setSubtitle("Eventos Cadastrados");
+		mToolbar.setTitle(getResources().getString(R.string.title_activity_eventos));
+		mToolbar.setSubtitle(getResources().getString(R.string.title_activity_eventos));
 		mToolbar.setLogo(R.drawable.mini_logo);
 		setSupportActionBar(mToolbar);
 		buscarEventos();
@@ -40,8 +41,13 @@ public class EventosActivity extends ActionBarActivity {
 		this.listaEventos = dao.buscarEventos();
 		
 		if(listaEventos != null) {
-			carregaLista();			
+			carregaLista();
 		}
+	}
+
+	public List<Evento> getListEvento() {
+		buscarEventos();
+		return this.listaEventos;
 	}
 	
 	private void carregaLista() {
